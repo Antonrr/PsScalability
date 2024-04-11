@@ -48,7 +48,7 @@ void FPsScalabilityModule::StartupModule()
 
 #if WITH_EDITOR
 	// Feature level switching
-	FCoreDelegates::OnConfigSectionRead.AddLambda([](const TCHAR* Filename, const TCHAR* SectionName) {
+	FCoreDelegates::TSOnConfigSectionRead().AddLambda([](const TCHAR* Filename, const TCHAR* SectionName) {
 		if (ScalabilityModuleImpl::IsItScalabilityFile(Filename))
 		{
 			ScalabilityModuleImpl::ClearSections(Filename);
